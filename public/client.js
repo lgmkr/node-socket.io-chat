@@ -27,3 +27,23 @@ window.onload = function () {
     };
   });
 }
+
+$(function () {
+  $('input#nick').keypress(function(e){
+    if (e.which == '13') {
+      socket.emit('nickname', $('#nick').val(), function (set) {
+        return $('#chat').addClass('nickname-set');
+      });
+    }
+  });
+  $('#set-nickname').submit(function (ev) {
+    socket.emit('nickname', $('#nick').val(), function (set) {
+      if (!set) {
+        clear();
+        return $('#chat').addClass('nickname-set');
+      }
+      $('#nickname-err').css('visibility', 'visible');
+    });
+    return false;
+  });
+})

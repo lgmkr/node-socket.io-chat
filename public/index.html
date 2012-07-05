@@ -1,13 +1,17 @@
 <!DOCTYPE html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>chat</title>
     <link href="style.css" rel="stylesheet">
+    <script src='http://code.jquery.com/jquery-1.6.1.min.js'></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="client.js"></script>
  </head>
  <body>
-  <div id="log"></div>
-  <input type="text" id="input" autofocus><input type="submit" id="send" value="Send">
+    <div id="nickname">
+       <label for="nick">your nick:</label>
+        <input id="nick" name="nick" type="text" autofocus />
+   <div id="log"></div>
+   <input type="text" id="input">
  </body>
 </html>
